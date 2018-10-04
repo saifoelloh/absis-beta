@@ -1,0 +1,19 @@
+{
+  "name": "zerotier",
+  "version": "1.0.0",
+  "description": "try zerotier API",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js"
+  },
+  "author": "Moh. Saifoelloh Noor",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "joi": "^13.7.0",
+    "mongoose": "^5.3.1",
+    "request": "^2.88.0",
+    "zerotier-service": "^0.2.3"
+  }
+}
