@@ -1,4 +1,11 @@
 const User = require('../models/user');
+const request = require('request');
+
+function zerotierGet(token) {
+    let host = 'http://localhost';
+    let port = '9993';
+
+}
 
 module.exports = {
     index: function(req, res, next) {
@@ -10,8 +17,6 @@ module.exports = {
     create: function(req, res, next) {
         let user = new User({
             name: req.body.name,
-            host: 'http://localhost:',
-            port: '3000',
             token: req.body.token
         });
         user.save(function(err) {
@@ -28,8 +33,6 @@ module.exports = {
     update: function(req, res, next) {
         let user = new User({
             name: req.body.name,
-            host: 'http://localhost:',
-            port: '3000',
             token: req.body.token
         })
         user.save(function(err) {
