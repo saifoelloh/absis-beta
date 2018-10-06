@@ -1,11 +1,5 @@
+const Joi = require('joi');
 const User = require('../models/user');
-const request = require('request');
-
-function zerotierGet(token) {
-    let host = 'http://localhost';
-    let port = '9993';
-
-}
 
 module.exports = {
     index: function(req, res, next) {
@@ -16,11 +10,15 @@ module.exports = {
     },
     create: function(req, res, next) {
         let user = new User({
-            name: req.body.name,
-            token: req.body.token
+            school: req.body.school,
+            address: req.body.address,
+            admin: req.body.admin,
+            phone: req.body.phone,
+            grade: req.body.grade,
+            subdomain: req.body.subdomain,
         });
         user.save(function(err) {
-            if(err) return res.send(err);
+            if(err) return res.status(500).send(err);
             res.status('200').send('User saved');
         })
     },
@@ -31,18 +29,14 @@ module.exports = {
         })
     },
     update: function(req, res, next) {
-        let user = new User({
-            name: req.body.name,
-            token: req.body.token
-        })
-        user.save(function(err) {
-            if(err) return res.send(err);
+        User.findByIdAndUpdate(req.params.id, req.body, {new: true},  (err, data)=>{
+            if(err) return res.status(500).send(err);
             res.status('200').json('User has updated');
         })
     },
     delete: function(req, res, next) {
         User.findByIdAndRemove(req.params.id, (err)=>{
-            if(err) return res.send(err);
+            if(err) return res.status(500).send(err);
             res.status('200').send('Data has deleted');
         })
     }

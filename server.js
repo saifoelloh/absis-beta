@@ -1,5 +1,4 @@
 const express = require('express');
-const Joi = require('joi');
 const zerotier = require('zerotier-service');
 const request = require('request');
 const http = require('http');
