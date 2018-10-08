@@ -4,7 +4,7 @@
   "description": "try zerotier API",
   "main": "server.js",
   "scripts": {
-    "test": "nodemon server.js"
+    "test": "npm server.js"
   },
   "author": "Moh. Saifoelloh Noor",
   "license": "ISC",
